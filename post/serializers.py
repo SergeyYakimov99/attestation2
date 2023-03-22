@@ -51,7 +51,7 @@ class CommentSerializer(serializers.ModelSerializer):
 
 class PostSerializer(serializers.ModelSerializer):
     author = serializers.SlugRelatedField(slug_field='username', queryset=User.objects.all())
-    comment = serializers.SlugRelatedField(slug_field='text', queryset=Comment.objects.all(), many=True)
+    comment = serializers.SlugRelatedField(slug_field='description', queryset=Comment.objects.all(), many=True)
     title = serializers.CharField(validators=[TitleValidator()])
 
     class Meta:
